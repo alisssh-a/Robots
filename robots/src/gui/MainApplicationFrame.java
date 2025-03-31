@@ -112,7 +112,7 @@ public class MainApplicationFrame extends JFrame {
     }
 
     private void confirmAndExit() {
-        Object[] options = {"Да", "Нет"};
+        // Используем UIManager вместо явных текстов
         int result = JOptionPane.showOptionDialog(
                 this,
                 "Вы действительно хотите выйти?",
@@ -120,9 +120,9 @@ public class MainApplicationFrame extends JFrame {
                 JOptionPane.YES_NO_OPTION,
                 JOptionPane.QUESTION_MESSAGE,
                 null,
-                options,
-                options[1]);
-
+                null, // null — чтобы брать тексты из UIManager
+                JOptionPane.NO_OPTION
+        );
         if (result == JOptionPane.YES_OPTION) {
             dispose();
             System.exit(0);
